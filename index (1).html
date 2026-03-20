@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rakesh Gupta | Hospitality Technology Executive</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* Apple Studio Design Tokens */
+            --bg-page: #fbfbfd;
+            --bg-card: #ffffff;
+            --bg-dark: #000000; 
+            --text-main: #1d1d1f; 
+            --text-muted: #86868b; 
+            --accent: #0071e3;    
+            --border: rgba(0, 0, 0, 0.05);
+            
+            /* High-End Studio Shadows */
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.03);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.04);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.08);
+            --shadow-xl: 0 32px 64px rgba(0,0,0,0.12);
+            
+            /* Motion (Swift Style) */
+            --transition-swift: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --blur-nav: blur(20px) saturate(180%);
+            --radius-xl: 44px;
+            --radius-lg: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            letter-spacing: -0.012em;
+            line-height: 1.7;
+        }
+
+        /* --- Background Decoration --- */
+        .bg-studio {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(at 0% 0%, rgba(0, 113, 227, 0.02) 0px, transparent 40%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.02) 0px, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* --- Top Meta (Proper Black) --- */
+        .meta-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 800;
+            color: #000;
+        }
+        .meta-nav div span { display: block; margin-bottom: 4px; font-weight: 600; opacity: 0.5; color: #000; }
+
+        /* --- Fixed Navigation Pill --- */
+        nav { position: sticky; top: 16px; z-index: 1000; display: flex; justify-content: center; margin-bottom: 40px; padding: 0 16px; }
+        .nav-pill { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: var(--blur-nav);
+            -webkit-backdrop-filter: var(--blur-nav);
+            padding: 6px; 
+            border-radius: 100px; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            display: flex; 
+            gap: 2px; 
+            box-shadow: var(--shadow-lg); 
+        }
+        .nav-pill a { 
+            text-decoration: none; 
+            color: var(--text-main); 
+            padding: 10px 24px; 
+            border-radius: 100px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            transition: var(--transition-swift); 
+        }
+        .nav-pill a:hover { transform: scale(1.05); }
+        .nav-pill a.active { background: #000; box-shadow: var(--shadow-sm); color: #fff; }
+
+        /* --- Layout Container --- */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px 100px; 
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: var(--radius-xl); 
+            padding: 64px; 
+            transition: var(--transition-swift); 
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+
+        /* --- Home Page Specific Layout (No Pic) --- */
+        .home-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 32px;
+            min-height: 400px;
+        }
+
+        .hero-text-content { text-align: left; }
+
+        .label-studio {
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .label-studio::after { content: ''; width: 60px; height: 1px; background: var(--border); }
+
+        h1.name-title {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.85;
+            margin-bottom: 24px;
+            letter-spacing: -0.06em;
+            color: #000;
+        }
+        h1.name-title span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #999;
+            font-size: 0.95em;
+            display: block;
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            color: #48484a;
+            max-width: 600px;
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+        }
+
+        /* Mastery Card Styling */
+        .mastery-card {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .stat-huge {
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        .mastery-label {
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            color: #000;
+            max-width: 180px;
+            line-height: 1.6;
+        }
+
+        /* --- Section Styling --- */
+        .section-elaborate { padding-top: 40px; }
+        .card-black { background: var(--bg-dark); color: #fff; border: none; }
+        .card-black .label-studio { color: rgba(255,255,255,0.4); }
+        .card-black .label-studio::after { background: rgba(255,255,255,0.15); }
+
+        h2.section-title { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 32px; }
+        h2.section-title span { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: var(--text-muted); }
+
+        .para-text { font-size: 1.2rem; color: #3a3a3c; max-width: 950px; margin-bottom: 40px; font-weight: 500; line-height: 1.7; }
+
+        /* --- Work Items --- */
+        .work-item { padding: 48px 0; border-bottom: 1px solid var(--border); }
+        .work-item:last-child { border: none; }
+        .work-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .work-date { font-size: 0.8rem; font-weight: 800; color: var(--accent); }
+        .work-role { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
+        .work-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+        .work-list li { position: relative; padding-left: 24px; font-size: 0.95rem; opacity: 0.8; }
+        .work-list li::before { content: ''; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--text-muted); opacity: 0.3; }
+
+        /* --- Infrastructure Mastery Grid (Comprehensive) --- */
+        .mastery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .mastery-block h4 {
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 12px;
+        }
+
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag-pill { 
+            background: rgba(255,255,255,0.05); 
+            padding: 10px 20px; 
+            border-radius: 12px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            color: #fff;
+            transition: var(--transition-swift);
+        }
+        .tag-pill:hover { background: #fff; color: #000; transform: translateY(-3px); }
+
+        /* --- Buttons --- */
+        .btn { 
+            padding: 18px 40px; 
+            border-radius: 100px; 
+            font-weight: 700; 
+            font-size: 1rem; 
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 12px; 
+            transition: var(--transition-swift); 
+            cursor: pointer; 
+            border: none;
+            background: #000; /* Solid Black */
+            color: #fff;       /* White Text */
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: var(--shadow-xl); opacity: 0.9; }
+
+        /* --- Reveal Animations --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-swift); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .home-grid { grid-template-columns: 1fr; }
+            .hero-text-content { text-align: center; }
+            .label-studio { justify-content: center; }
+            .hero-description { margin: 0 auto; }
+            .meta-nav { display: none; }
+            .work-list { grid-template-columns: 1fr; }
+            .mastery-grid { grid-template-columns: 1fr; }
+            .card { padding: 48px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-studio"></div>
+
+    <header class="meta-nav">
+        <div><span>Global Tenure</span>29 Years Excellence</div>
+        <div><span>Strategic Base</span>Mumbai, India</div>
+        <div><span>Senior Role</span>ICS Consultant</div>
+        <div><span>Focus</span>Hospitality Systems</div>
+    </header>
+
+    <nav>
+        <div class="nav-pill">
+            <a href="#home" class="active">Profile</a>
+            <a href="#about">About Me</a>
+            <a href="#milestones">Milestones</a>
+            <a href="#mastery">Technical A-Z</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- HOME SECTION: Clean Typographic Version -->
+        <section id="home" class="home-grid reveal">
+            <div class="card">
+                <div class="label-studio">Senior Executive Architect</div>
+                <div class="hero-text-content">
+                    <h1 class="name-title">Rakesh <span>Gupta.</span></h1>
+                    <p class="hero-description">
+                        Pioneering global digital infrastructure and high-stakes system orchestration for luxury hospitality since 1997.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mastery-card">
+                <div class="label-studio" style="justify-content: center;">Professional Mastery</div>
+                <div class="stat-huge">29</div>
+                <p class="mastery-label">Years of Growth Leadership</p>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="section-elaborate reveal">
+            <div class="card">
+                <div class="label-studio">01 // The Executive Narrative</div>
+                <h2 class="section-title">Who I <span>Am.</span></h2>
+                <p class="para-text">
+                    I am an IT professional with nearly three decades of proven success in navigating start-up, turnaround, and rapid-change environments within the Hospitality & IT sectors. My career is defined by the belief that a property's technical foundation is its most vital silent operator.
+                </p>
+                <p class="para-text" style="color: var(--text-muted);">
+                    Currently serving as a Senior ICS Consultant at Infor India, I bridge the gap between technical complexity and operational excellence. My specialty lies in Property Management Systems (PMS) and their intricate interface ecosystems. I don't just implement software; I architect the digital nervous systems of luxury hotels across India, the GCC, and the wider international market.
+                </p>
+                <div style="margin-top: 32px; display: flex; gap: 16px;">
+                    <a href="#contact" class="btn">Connect Directly</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MILESTONES SECTION -->
+        <section id="milestones" class="section-elaborate reveal">
+            <div class="card">
+                <div class="label-studio">02 // Professional Chapter</div>
+                <h2 class="section-title">Career <span>Chronicles.</span></h2>
+                
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="work-role">Principal Consultant</h3>
+                        <span class="work-date">2013 — Present</span>
+                    </div>
+                    <span style="font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block;">Infor (India) Pvt Ltd | Mumbai</span>
+                    <p class="para-text" style="font-size: 1.05rem; opacity: 0.9;">
+                        Leading the technical installations for Infor HMS flagship suites. I orchestrate complex interface ecosystems—ensuring CRS, POS, Keycard, WiFi, and CRM web services operate in perfect synchronicity.
+                    </p>
+                    <ul class="work-list">
+                        <li>Certification lead for HTNG, OTA, and Kiosk interface integrations.</li>
+                        <li>Automated guest communication via eGenesis suite.</li>
+                        <li>Lead 13+ international product installations.</li>
+                        <li>Expert in Liaison/EIC interface application configuration.</li>
+                    </ul>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="work-role">Lead Customer Support</h3>
+                        <span class="work-date">2009 — 2013</span>
+                    </div>
+                    <span style="font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block;">Ness Technologies (India) Pvt Ltd</span>
+                    <ul class="work-list">
+                        <li>Implemented mPOS systems on segregated hotel WiFi networks.</li>
+                        <li>Integrated lift access control through Keycard APM interfaces.</li>
+                        <li>Managed InforXtreme customer support ecosystems.</li>
+                        <li>Provided technical presentations for major Sales lead generations.</li>
+                    </ul>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="work-role">Micros Specialist</h3>
+                        <span class="work-date">2000 — 2005</span>
+                    </div>
+                    <span style="font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block;">Micros (Global)</span>
+                    <p class="para-text" style="font-size: 1rem; opacity: 0.8;">
+                        Maintained critical infrastructure for 60+ flagship installations across India, Nepal, and Bangladesh.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFRASTRUCTURE MASTERY (Expanded A-Z) -->
+        <section id="mastery" class="section-elaborate reveal">
+            <div class="card card-black">
+                <div class="label-studio">03 // Infrastructure Mastery</div>
+                <h2 class="section-title" style="color: #fff;">Technical <span>Excellence A-Z.</span></h2>
+                
+                <div class="mastery-grid">
+                    <div class="mastery-block">
+                        <h4>Hospitality Systems</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">Infor HMS</span> <span class="tag-pill">APM PMS</span> <span class="tag-pill">Micros 8700</span> <span class="tag-pill">Micros 9700</span> <span class="tag-pill">InfoGenesis POS</span> <span class="tag-pill">PixelPoint POS</span> <span class="tag-pill">ResPAK Table Mgmt</span> <span class="tag-pill">MobilePOS</span>
+                        </div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>Databases & BI</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">SQL Server</span> <span class="tag-pill">Progress Database</span> <span class="tag-pill">Business Objects</span> <span class="tag-pill">Sonic</span> <span class="tag-pill">Crystal Enterprise</span>
+                        </div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>OS & Core Infrastructure</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">SCO Unix</span> <span class="tag-pill">Windows Server</span> <span class="tag-pill">Novell NetWare</span> <span class="tag-pill">DOS</span> <span class="tag-pill">RAID Arrays</span> <span class="tag-pill">Network Security</span>
+                        </div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>Integration Layers</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">HTNG Protocols</span> <span class="tag-pill">OTA Certification</span> <span class="tag-pill">REST API</span> <span class="tag-pill">Web Services</span> <span class="tag-pill">CRS Integration</span> <span class="tag-pill">KIOSK Systems</span> <span class="tag-pill">Keycard / Phone</span> <span class="tag-pill">PayTV / WiFi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
+                    <div>
+                        <span class="label-studio" style="margin-bottom: 12px; font-size: 0.6rem;">Certifications</span>
+                        <p style="font-size: 0.85rem; font-weight: 700;">MCSE (WIN 2000) • PixelPoint Professional (PPCP)</p>
+                    </div>
+                    <div>
+                        <span class="label-studio" style="margin-bottom: 12px; font-size: 0.6rem;">Academic</span>
+                        <p style="font-size: 0.85rem; font-weight: 700;">MBA • PG Diploma in IT • Industrial Electronics</p>
+                    </div>
+                    <div>
+                        <span class="label-studio" style="margin-bottom: 12px; font-size: 0.6rem;">Personal</span>
+                        <p style="font-size: 0.85rem; font-weight: 500;">Mumbai, India • 28.05.1976 • Marathi, Hindi, English</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-elaborate reveal">
+            <div class="card card-black" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 80px;">
+                <div>
+                    <h2 class="section-title" style="color: #fff; margin-bottom: 0;">Begin the <span>Inquiry.</span></h2>
+                    <p style="font-size: 1.1rem; opacity: 0.5; margin-top: 12px;">Direct Line: +91 9768102669</p>
+                </div>
+                <div style="display: flex; gap: 16px;">
+                    <a href="mailto:Rgupta2512@gmail.com" class="btn">Email Executive</a>
+                    <button class="btn" style="background: rgba(255,255,255,0.1); color: #fff;" id="copyBtn">Copy Details</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer style="text-align: center; padding: 120px 40px 60px; color: var(--text-muted); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6em; opacity: 0.4;">
+        Rakesh Gupta // Strategic Hospitality IT Leadership // 2026
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.addEventListener('click', () => {
+            const email = "Rgupta2512@gmail.com";
+            const el = document.createElement('textarea');
+            el.value = email;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const originalText = copyBtn.innerText;
+            copyBtn.innerText = "Copied!";
+            setTimeout(() => { copyBtn.innerText = originalText; }, 2000);
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-pill a');
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rakesh Gupta | Hospitality Technology Executive</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* Apple Studio Design Tokens */
+            --bg-page: #fbfbfd;
+            --bg-card: #ffffff;
+            --bg-dark: #000000; 
+            --text-main: #1d1d1f; 
+            --text-muted: #86868b; 
+            --accent: #0071e3;    
+            --border: rgba(0, 0, 0, 0.05);
+            
+            /* High-End Studio Shadows */
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.03);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.04);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.08);
+            --shadow-xl: 0 32px 64px rgba(0,0,0,0.12);
+            
+            /* Motion (Swift Style) */
+            --transition-swift: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --blur-nav: blur(20px) saturate(180%);
+            --radius-xl: 44px;
+            --radius-lg: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            letter-spacing: -0.012em;
+            line-height: 1.7;
+        }
+
+        /* --- Background Decoration --- */
+        .bg-studio {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(at 0% 0%, rgba(0, 113, 227, 0.02) 0px, transparent 40%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.02) 0px, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* --- Top Meta (Proper Black) --- */
+        .meta-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-weight: 800;
+            color: #000;
+        }
+        .meta-nav div span { display: block; margin-bottom: 4px; font-weight: 600; opacity: 0.5; color: #000; }
+
+        /* --- Fixed Navigation Pill --- */
+        nav { position: sticky; top: 16px; z-index: 1000; display: flex; justify-content: center; margin-bottom: 40px; padding: 0 16px; }
+        .nav-pill { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: var(--blur-nav);
+            -webkit-backdrop-filter: var(--blur-nav);
+            padding: 6px; 
+            border-radius: 100px; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            display: flex; 
+            gap: 2px; 
+            box-shadow: var(--shadow-lg); 
+        }
+        .nav-pill a { 
+            text-decoration: none; 
+            color: var(--text-main); 
+            padding: 10px 24px; 
+            border-radius: 100px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            transition: var(--transition-swift); 
+        }
+        .nav-pill a:hover { transform: scale(1.05); }
+        .nav-pill a.active { background: #000; box-shadow: var(--shadow-sm); color: #fff; }
+
+        /* --- Layout Container --- */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px 100px; 
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: var(--radius-xl); 
+            padding: 64px; 
+            transition: var(--transition-swift); 
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+
+        /* --- Home Page Specific Layout (No Pic) --- */
+        .home-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 32px;
+            min-height: 400px;
+        }
+
+        .hero-text-content { text-align: left; }
+
+        .label-studio {
+            font-size: 0.65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .label-studio::after { content: ''; width: 60px; height: 1px; background: var(--border); }
+
+        h1.name-title {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.85;
+            margin-bottom: 24px;
+            letter-spacing: -0.06em;
+            color: #000;
+        }
+        h1.name-title span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #999;
+            font-size: 0.95em;
+            display: block;
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            color: #48484a;
+            max-width: 600px;
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+        }
+
+        /* Mastery Card Styling */
+        .mastery-card {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .stat-huge {
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        .mastery-label {
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            color: #000;
+            max-width: 180px;
+            line-height: 1.6;
+        }
+
+        /* --- Section Styling --- */
+        .section-elaborate { padding-top: 40px; }
+        .card-black { background: var(--bg-dark); color: #fff; border: none; }
+        .card-black .label-studio { color: rgba(255,255,255,0.4); }
+        .card-black .label-studio::after { background: rgba(255,255,255,0.15); }
+
+        h2.section-title { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 32px; }
+        h2.section-title span { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; color: var(--text-muted); }
+
+        .para-text { font-size: 1.2rem; color: #3a3a3c; max-width: 950px; margin-bottom: 40px; font-weight: 500; line-height: 1.7; }
+
+        /* --- Work Items --- */
+        .work-item { padding: 48px 0; border-bottom: 1px solid var(--border); }
+        .work-item:last-child { border: none; }
+        .work-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .work-date { font-size: 0.8rem; font-weight: 800; color: var(--accent); }
+        .work-role { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
+        .work-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+        .work-list li { position: relative; padding-left: 24px; font-size: 0.95rem; opacity: 0.8; }
+        .work-list li::before { content: ''; position: absolute; left: 0; top: 11px; width: 10px; height: 2px; background: var(--text-muted); opacity: 0.3; }
+
+        /* --- Infrastructure Mastery Grid (Comprehensive) --- */
+        .mastery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .mastery-block h4 {
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 12px;
+        }
+
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag-pill { 
+            background: rgba(255,255,255,0.05); 
+            padding: 10px 20px; 
+            border-radius: 12px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            color: #fff;
+            transition: var(--transition-swift);
+        }
+        .tag-pill:hover { background: #fff; color: #000; transform: translateY(-3px); }
+
+        /* --- Buttons --- */
+        .btn { 
+            padding: 18px 40px; 
+            border-radius: 100px; 
+            font-weight: 700; 
+            font-size: 1rem; 
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 12px; 
+            transition: var(--transition-swift); 
+            cursor: pointer; 
+            border: none;
+            background: #000; /* Solid Black */
+            color: #fff;       /* White Text */
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: var(--shadow-xl); opacity: 0.9; }
+
+        /* --- Reveal Animations --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-swift); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .home-grid { grid-template-columns: 1fr; }
+            .hero-text-content { text-align: center; }
+            .label-studio { justify-content: center; }
+            .hero-description { margin: 0 auto; }
+            .meta-nav { display: none; }
+            .work-list { grid-template-columns: 1fr; }
+            .mastery-grid { grid-template-columns: 1fr; }
+            .card { padding: 48px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-studio"></div>
+
+    <header class="meta-nav">
+        <div><span>Global Tenure</span>29 Years Excellence</div>
+        <div><span>Strategic Base</span>Mumbai, India</div>
+        <div><span>Senior Role</span>ICS Consultant</div>
+        <div><span>Focus</span>Hospitality Systems</div>
+    </header>
+
+    <nav>
+        <div class="nav-pill">
+            <a href="#home" class="active">Profile</a>
+            <a href="#about">About Me</a>
+            <a href="#milestones">Milestones</a>
+            <a href="#mastery">Technical A-Z</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- HOME SECTION: Clean Typographic Version -->
+        <section id="home" class="home-grid reveal">
+            <div class="card">
+                <div class="label-studio">Senior Executive Architect</div>
+                <div class="hero-text-content">
+                    <h1 class="name-title">Rakesh <span>Gupta.</span></h1>
+                    <p class="hero-description">
+                        Pioneering global digital infrastructure and high-stakes system orchestration for luxury hospitality since 1997.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mastery-card">
+                <div class="label-studio" style="justify-content: center;">Professional Mastery</div>
+                <div class="stat-huge">29</div>
+                <p class="mastery-label">Years of Growth Leadership</p>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="section-elaborate reveal">
+            <div class="card">
+                <div class="label-studio">01 // The Executive Narrative</div>
+                <h2 class="section-title">Who I <span>Am.</span></h2>
+                <p class="para-text">
+                    I am an IT professional with nearly three decades of proven success in navigating start-up, turnaround, and rapid-change environments within the Hospitality & IT sectors. My career is defined by the belief that a property's technical foundation is its most vital silent operator.
+                </p>
+                <p class="para-text" style="color: var(--text-muted);">
+                    Currently serving as a Senior ICS Consultant at Infor India, I bridge the gap between technical complexity and operational excellence. My specialty lies in Property Management Systems (PMS) and their intricate interface ecosystems. I don't just implement software; I architect the digital nervous systems of luxury hotels across India, the GCC, and the wider international market.
+                </p>
+                <div style="margin-top: 32px; display: flex; gap: 16px;">
+                    <a href="#contact" class="btn">Connect Directly</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MILESTONES SECTION -->
+        <section id="milestones" class="section-elaborate reveal">
+            <div class="card">
+                <div class="label-studio">02 // Professional Chapter</div>
+                <h2 class="section-title">Career <span>Chronicles.</span></h2>
+                
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="work-role">Principal Consultant</h3>
+                        <span class="work-date">2013 — Present</span>
+                    </div>
+                    <span style="font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block;">Infor (India) Pvt Ltd | Mumbai</span>
+                    <p class="para-text" style="font-size: 1.05rem; opacity: 0.9;">
+                        Leading the technical installations for Infor HMS flagship suites. I orchestrate complex interface ecosystems—ensuring CRS, POS, Keycard, WiFi, and CRM web services operate in perfect synchronicity.
+                    </p>
+                    <ul class="work-list">
+                        <li>Certification lead for HTNG, OTA, and Kiosk interface integrations.</li>
+                        <li>Automated guest communication via eGenesis suite.</li>
+                        <li>Lead 13+ international product installations.</li>
+                        <li>Expert in Liaison/EIC interface application configuration.</li>
+                    </ul>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="work-role">Lead Customer Support</h3>
+                        <span class="work-date">2009 — 2013</span>
+                    </div>
+                    <span style="font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block;">Ness Technologies (India) Pvt Ltd</span>
+                    <ul class="work-list">
+                        <li>Implemented mPOS systems on segregated hotel WiFi networks.</li>
+                        <li>Integrated lift access control through Keycard APM interfaces.</li>
+                        <li>Managed InforXtreme customer support ecosystems.</li>
+                        <li>Provided technical presentations for major Sales lead generations.</li>
+                    </ul>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-header">
+                        <h3 class="work-role">Micros Specialist</h3>
+                        <span class="work-date">2000 — 2005</span>
+                    </div>
+                    <span style="font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block;">Micros (Global)</span>
+                    <p class="para-text" style="font-size: 1rem; opacity: 0.8;">
+                        Maintained critical infrastructure for 60+ flagship installations across India, Nepal, and Bangladesh.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFRASTRUCTURE MASTERY (Expanded A-Z) -->
+        <section id="mastery" class="section-elaborate reveal">
+            <div class="card card-black">
+                <div class="label-studio">03 // Infrastructure Mastery</div>
+                <h2 class="section-title" style="color: #fff;">Technical <span>Excellence A-Z.</span></h2>
+                
+                <div class="mastery-grid">
+                    <div class="mastery-block">
+                        <h4>Hospitality Systems</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">Infor HMS</span> <span class="tag-pill">APM PMS</span> <span class="tag-pill">Micros 8700</span> <span class="tag-pill">Micros 9700</span> <span class="tag-pill">InfoGenesis POS</span> <span class="tag-pill">PixelPoint POS</span> <span class="tag-pill">ResPAK Table Mgmt</span> <span class="tag-pill">MobilePOS</span>
+                        </div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>Databases & BI</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">SQL Server</span> <span class="tag-pill">Progress Database</span> <span class="tag-pill">Business Objects</span> <span class="tag-pill">Sonic</span> <span class="tag-pill">Crystal Enterprise</span>
+                        </div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>OS & Core Infrastructure</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">SCO Unix</span> <span class="tag-pill">Windows Server</span> <span class="tag-pill">Novell NetWare</span> <span class="tag-pill">DOS</span> <span class="tag-pill">RAID Arrays</span> <span class="tag-pill">Network Security</span>
+                        </div>
+                    </div>
+                    <div class="mastery-block">
+                        <h4>Integration Layers</h4>
+                        <div class="tag-cloud">
+                            <span class="tag-pill">HTNG Protocols</span> <span class="tag-pill">OTA Certification</span> <span class="tag-pill">REST API</span> <span class="tag-pill">Web Services</span> <span class="tag-pill">CRS Integration</span> <span class="tag-pill">KIOSK Systems</span> <span class="tag-pill">Keycard / Phone</span> <span class="tag-pill">PayTV / WiFi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
+                    <div>
+                        <span class="label-studio" style="margin-bottom: 12px; font-size: 0.6rem;">Certifications</span>
+                        <p style="font-size: 0.85rem; font-weight: 700;">MCSE (WIN 2000) • PixelPoint Professional (PPCP)</p>
+                    </div>
+                    <div>
+                        <span class="label-studio" style="margin-bottom: 12px; font-size: 0.6rem;">Academic</span>
+                        <p style="font-size: 0.85rem; font-weight: 700;">MBA • PG Diploma in IT • Industrial Electronics</p>
+                    </div>
+                    <div>
+                        <span class="label-studio" style="margin-bottom: 12px; font-size: 0.6rem;">Personal</span>
+                        <p style="font-size: 0.85rem; font-weight: 500;">Mumbai, India • 28.05.1976 • Marathi, Hindi, English</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-elaborate reveal">
+            <div class="card card-black" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 80px;">
+                <div>
+                    <h2 class="section-title" style="color: #fff; margin-bottom: 0;">Begin the <span>Inquiry.</span></h2>
+                    <p style="font-size: 1.1rem; opacity: 0.5; margin-top: 12px;">Direct Line: +91 9768102669</p>
+                </div>
+                <div style="display: flex; gap: 16px;">
+                    <a href="mailto:Rgupta2512@gmail.com" class="btn">Email Executive</a>
+                    <button class="btn" style="background: rgba(255,255,255,0.1); color: #fff;" id="copyBtn">Copy Details</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer style="text-align: center; padding: 120px 40px 60px; color: var(--text-muted); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6em; opacity: 0.4;">
+        Rakesh Gupta // Strategic Hospitality IT Leadership // 2026
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.addEventListener('click', () => {
+            const email = "Rgupta2512@gmail.com";
+            const el = document.createElement('textarea');
+            el.value = email;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const originalText = copyBtn.innerText;
+            copyBtn.innerText = "Copied!";
+            setTimeout(() => { copyBtn.innerText = originalText; }, 2000);
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-pill a');
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
